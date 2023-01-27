@@ -1,0 +1,7 @@
+{
+  "name": "semicolon",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
