@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Add Skill ;)</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title> Lets Add a New Skill </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Skill:</ion-label>
+        <ion-input type="text" placeholder="Enter your Skill"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-radio-group value="custom-checked">
+          <ion-item lines="none">
+            <ion-label>Primary Skill</ion-label>
+            <ion-radio value="primary" slot="start"></ion-radio>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label>Secondary Skill</ion-label>
+            <ion-radio value="secondary" slot="start"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-item>
+      <ion-item lines="insert">
+        <ion-label position="floating">Notes:</ion-label>
+        <ion-textarea type="text" placeholder="Additional notes you wish to add"></ion-textarea>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  <ion-button size="full" color="tertiary" (click)="addSkillData()">Add</ion-button>
+</ion-content>

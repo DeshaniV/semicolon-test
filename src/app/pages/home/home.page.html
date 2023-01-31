@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <!-- <ion-buttons slot="start">
+      <ion-menu-button auto-hide="false"></ion-menu-button>
+    </ion-buttons> -->
+    <ion-title>Semicolon ;)</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="../../../assets/icon/Avatar M.png" alt="male-avatar">
+      </ion-avatar>
+      <ion-label>
+        <h2>Amila Ranasinghe</h2>
+        <p>Experience: <span>2+ years</span></p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <app-skill-card [primarySkillSet]="'Angular, JavaScript, HTML, CSS, Bootstrap'"
+    [secondarySkillSet]="'Angular Unit Testing, GIT, JIRA'" [baseLocation]="'Colombo, Sri Lanka'">
+    <ion-button footer color="primary" fill="clear" size="full" (click)="displayFullDetails()">See more..</ion-button>
+  </app-skill-card>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="primary" (click)="addSkill()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
