@@ -1,0 +1,21 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-subtitle>
+      Skill Set:
+    </ion-card-subtitle>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-item lines="none">
+      <ion-icon name="laptop-outline" slot="start" color="primary"></ion-icon>
+      <ion-label>Primary Skills: {{primarySkillSet}}
+        <p> Secondary Skills: {{secondarySkillSet}}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>Base Location:
+        <p> {{baseLocation}}</p>
+      </ion-label>
+    </ion-item>
+    <ng-content *ngIf="'footer'"></ng-content>
+  </ion-card-content>
+</ion-card>
