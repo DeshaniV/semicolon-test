@@ -21,10 +21,11 @@
           </ion-item>
           <app-error-msgs [field]="$any(form).controls.password" [error]="'required'"
             [message]="'Password is required'"></app-error-msgs>
-          <ion-button color="secondary" fill="clear" size="full" [disabled]="!form.get('email')!.valid">Forgot
+          <ion-button color="secondary" fill="clear" size="full" [disabled]="!form.get('email')!.valid"
+            (click)="forgotEmailPassword()">Forgot
             email/password?</ion-button>
-          <ion-button size="default" size="full" (click)="login()" [disabled]="!form.valid">Login</ion-button>
-          <ion-button size="default" fill="clear" size="full" (click)="signUp()">Sign Up</ion-button>
+          <ion-button expand="block" size="default" size="full" (click)="login()" [disabled]="!form.valid">Login</ion-button>
+          <ion-button expand="block" size="default" fill="clear" size="full" (click)="signUp()">Sign Up</ion-button>
         </ion-card-content>
       </ion-card>
     </form>
