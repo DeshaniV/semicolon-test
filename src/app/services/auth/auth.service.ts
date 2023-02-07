@@ -3,13 +3,14 @@ import { Observable } from 'rxjs';
 import { User } from 'src/app/model/user/user';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import * as firebase from 'firebase/compat/app'
+import { UserRegister } from '../../model/user/user-register';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private auth:AngularFireAuth) { }
+  constructor(private auth: AngularFireAuth) { }
 
   recoverEmailPassword(email: string): Observable<void> {
     return new Observable<void>(observer => {
@@ -30,7 +31,7 @@ export class AuthService {
     });
   }
 
-  login(email:string, password:string): Observable<User> {
+  login(email: string, password: string): Observable<User> {
     return new Observable<User>(observer => {
       // setTimeout(() => {
       //   if (email == "error@gmail.com") {
@@ -45,15 +46,28 @@ export class AuthService {
       //   observer.complete();
       // }, 3000);
       this.auth.setPersistence(firebase.default.auth.Auth.Persistence.LOCAL).then(() => {
-        this.auth.signInWithEmailAndPassword(email,password)
-        .then((firebaseUser: firebase.default.auth.UserCredential) => {
-          observer.next({email, id: firebaseUser!.user!.uid});
-          observer.complete();
-        }).catch(error => {
-          observer.error(error);
-          observer.complete();
-        });
+        this.auth.signInWithEmailAndPassword(email, password)
+          .then((firebaseUser: firebase.default.auth.UserCredential) => {
+            observer.next({ email, id: firebaseUser!.user!.uid });
+            observer.complete();
+          }).catch(error => {
+            observer.error(error);
+            observer.complete();
+          });
       });
+    });
+  }
+
+  register(userRegister: UserRegister): Observable<void> {
+    return new Observable<void>(observer => {
+      setTimeout(() => {
+        if (userRegister.email == "user@gmail.com") {
+          observer.error({ message: "Email already registered" });
+        } else {
+          observer.next();
+        }
+        observer.complete();
+      }, 3000)
     });
   }
 }

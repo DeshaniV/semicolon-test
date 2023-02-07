@@ -11,9 +11,9 @@
             <ion-label position="floating">Email:</ion-label>
             <ion-input type="email" placeholder="Enter your email address" formControlName="email"></ion-input>
           </ion-item>
-          <app-error-msgs [field]="$any(form).controls.email" [error]="'required'"
+          <app-error-msgs [field]="$any(form).get('email')" [error]="'required'"
             [message]="'Email is required'"></app-error-msgs>
-          <app-error-msgs [field]="$any(form).controls.email" [error]="'email'"
+          <app-error-msgs [field]="$any(form).get('email')" [error]="'email'"
             [message]="'Invalid Email'"></app-error-msgs>
           <ion-item>
             <ion-label position="floating">Password:</ion-label>
@@ -24,8 +24,9 @@
           <ion-button color="secondary" fill="clear" size="full" [disabled]="!form.get('email')!.valid"
             (click)="forgotEmailPassword()">Forgot
             email/password?</ion-button>
-          <ion-button expand="block" size="default" size="full" (click)="login()" [disabled]="!form.valid">Login</ion-button>
-          <ion-button expand="block" size="default" fill="clear" size="full" (click)="signUp()">Sign Up</ion-button>
+          <ion-button expand="block" size="default" size="full" (click)="login()"
+            [disabled]="!form.valid">Login</ion-button>
+          <ion-button expand="block" size="default" fill="clear" size="full" (click)="register()">Register</ion-button>
         </ion-card-content>
       </ion-card>
     </form>
