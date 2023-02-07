@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-error-msgs',
@@ -8,7 +8,7 @@ import { FormGroup } from '@angular/forms';
 })
 export class ErrorMsgsComponent implements OnInit {
  @Input() message: string | undefined;
- @Input() field!: FormGroup;
+ @Input() field!: AbstractControl;
  @Input() error!: string;
 
   constructor() { }
@@ -16,7 +16,7 @@ export class ErrorMsgsComponent implements OnInit {
   ngOnInit() {}
 
   showMessages() {
-    return this.field.touched && this.field.errors?.[this.error];
+    return this.field?.touched && this.field?.errors?.[this.error];
   }
 
 }

@@ -15,13 +15,16 @@ import { AppStoreModule } from './store/app-store-module';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { LoadingComponent } from './components/loading/loading.component';
 import { environment } from 'src/environments/environment';
+import { AuthGuard } from './guards/auth/auth-guard'
+import { ErrorMsgsModule } from './components/error-msgs/error-msgs.module';
 
 @NgModule({
   declarations: [AppComponent, FormControlPipe, LoadingComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, 
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, ErrorMsgsModule,
   AngularFireModule.initializeApp(environment.firebaseConfig), 
   ...AppStoreModule, StoreDevtoolsModule.instrument({maxAge: 25})],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy}],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
+  AuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
